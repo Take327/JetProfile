@@ -12,16 +12,15 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.LocationOn
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.jetprofile.components.Label
 import com.example.jetprofile.ui.theme.JetProfileTheme
 
 // ────────────────────────────────────────────────────────────────
@@ -166,17 +165,3 @@ class MainActivity : ComponentActivity() {
 
 }
 
-@Composable
-fun Label(icon: ImageVector, text: String, color: Color = MaterialTheme.colors.onBackground) {
-    Row(verticalAlignment = Alignment.CenterVertically) {
-        Icon(
-            imageVector = icon,
-            contentDescription = null,
-        )
-        Spacer(
-            modifier = Modifier.width(10.dp)      // dp は画面の密度に依存しないサイズ単位
-        )
-        Text(text = text, color = color, fontSize = 14.sp, fontWeight = FontWeight.Bold)
-
-    }
-}
