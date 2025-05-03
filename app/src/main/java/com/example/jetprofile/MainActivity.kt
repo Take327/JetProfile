@@ -6,9 +6,9 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Email
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -52,6 +52,7 @@ class MainActivity : ComponentActivity() {
                                 .size(100.dp)
                                 .clip(RoundedCornerShape(10.dp))
                         )
+                        // Spacer: 空白領域を挿入。ここでは下方向に20dpの余白を確保
                         Spacer(
                             modifier = Modifier.height(20.dp)      // dp は画面の密度に依存しないサイズ単位
                         )
@@ -75,6 +76,57 @@ class MainActivity : ComponentActivity() {
                             fontSize = 16.sp,                      // サイズも揃える
                             fontWeight = FontWeight.ExtraBold      // 太さも揃える
                         )
+
+                        Spacer(
+                            modifier = Modifier.height(20.dp)      // dp は画面の密度に依存しないサイズ単位
+                        )
+
+                        Column(
+                            horizontalAlignment = Alignment.Start,
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            //会社名
+                            Text(
+                                text = "XXX株式会社",
+                                fontSize = 26.sp,
+                                fontWeight = FontWeight.Bold      // 太さも揃える
+                            )
+                            Spacer(
+                                modifier = Modifier.height(10.dp)      // dp は画面の密度に依存しないサイズ単位
+                            )
+                            //組織
+                            Text(
+                                text = "ITチーム",
+                                fontSize = 16.sp,
+                                color = Color.Gray,                    // 色は先と同じグレー
+                            )
+                            Spacer(
+                                modifier = Modifier.height(20.dp)      // dp は画面の密度に依存しないサイズ単位
+                            )
+                            //Email
+                            Row(verticalAlignment = Alignment.CenterVertically) {
+                                Icon(
+                                    imageVector = Icons.Default.Email,
+                                    contentDescription = "email",
+                                )
+                                Spacer(
+                                    modifier = Modifier.width(10.dp)      // dp は画面の密度に依存しないサイズ単位
+                                )
+                                Text(text = "Email", fontSize = 14.sp, fontWeight = FontWeight.Bold)
+
+                            }
+                            Spacer(
+                                modifier = Modifier.height(10.dp)      // dp は画面の密度に依存しないサイズ単位
+                            )
+                            Text(text = "example@xx.co.jp", fontSize = 16.sp)
+                            Spacer(
+                                modifier = Modifier.height(5.dp)      // dp は画面の密度に依存しないサイズ単位
+                            )
+                            Divider(
+                                modifier = Modifier.clip(RoundedCornerShape(1000.dp)),
+                                thickness = 2.dp,
+                            )
+                        }
                     }
 
                 }
