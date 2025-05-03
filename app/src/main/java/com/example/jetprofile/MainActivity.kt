@@ -4,14 +4,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Email
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -21,7 +16,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.jetprofile.components.CompanySection
-import com.example.jetprofile.components.Label
+import com.example.jetprofile.components.DetailSection
 import com.example.jetprofile.ui.theme.JetProfileTheme
 
 // ────────────────────────────────────────────────────────────────
@@ -85,6 +80,7 @@ class MainActivity : ComponentActivity() {
                         Spacer(
                             modifier = Modifier.height(20.dp)      // dp は画面の密度に依存しないサイズ単位
                         )
+                        // 会社情報
                         CompanySection()
                         // 詳細ボタン
                         Button(
@@ -98,35 +94,11 @@ class MainActivity : ComponentActivity() {
                             modifier = Modifier.height(20.dp)      // dp は画面の密度に依存しないサイズ単位
                         )
                         //居住地　趣味
-                        Column(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .clip(RoundedCornerShape(10.dp))
-                                .background(Color.LightGray.copy(alpha = 0.3f))
-                                .padding(horizontal = 10.dp, vertical = 20.dp)
-                        ) {
-                            Label(
-                                icon = Icons.Default.Favorite,
-                                text = "プログラミング",
-                                color = Color.Gray
-                            )
-                            Spacer(
-                                modifier = Modifier.height(10.dp)      // dp は画面の密度に依存しないサイズ単位
-                            )
-                            Label(
-                                icon = Icons.Default.LocationOn,
-                                text = "居住地：神奈川県",
-                                color = Color.Gray
-                            )
-                        }
-
+                        DetailSection()
                     }
-
                 }
             }
         }
-
     }
-
 }
 
