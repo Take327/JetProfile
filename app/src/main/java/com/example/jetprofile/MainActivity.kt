@@ -39,19 +39,30 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),                      // 画面全体を占有
                     color = MaterialTheme.colors.background                 // テーマで定義された背景色を使用
                 ) {
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    // Column: 子コンポーザブルを縦方向に並べるレイアウト
+                    // horizontalAlignment = Alignment.CenterHorizontally で列内を横方向に中央揃え
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        // 1行目のテキスト
                         Text(
-                            text = "Take",
-                            color = Color.Gray,
-                            fontSize = 16.sp,
-                            fontWeight = FontWeight.ExtraBold,
+                            text = "Take",                         // 表示する文字列
+                            color = Color.Gray,                    // テキストの色をグレーに
+                            fontSize = 16.sp,                      // フォントサイズを16spに（sp は文字に最適化された単位）
+                            fontWeight = FontWeight.ExtraBold      // 太字の中でも極太を指定
                         )
-                        Spacer(modifier = Modifier.height(20.dp))
+
+                        // Spacer: 空白領域を挿入。ここでは下方向に20dpの余白を確保
+                        Spacer(
+                            modifier = Modifier.height(20.dp)      // dp は画面の密度に依存しないサイズ単位
+                        )
+
+                        // 2行目のテキスト
                         Text(
-                            text = "職業：エンジニア",
-                            color = Color.Gray,
-                            fontSize = 16.sp,
-                            fontWeight = FontWeight.ExtraBold,
+                            text = "職業：エンジニア",             // 日本語テキストも同様に表示可能
+                            color = Color.Gray,                    // 色は先と同じグレー
+                            fontSize = 16.sp,                      // サイズも揃える
+                            fontWeight = FontWeight.ExtraBold      // 太さも揃える
                         )
                     }
 
