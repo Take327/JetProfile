@@ -7,7 +7,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -48,6 +48,10 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MainContent() {
+    // 詳細エリア表示ステータス
+    var isDetailShow by remember {
+        mutableStateOf(value = false)
+    }
     // Column: 子コンポーザブルを縦方向に並べるレイアウト
     // horizontalAlignment = Alignment.CenterHorizontally で列内を横方向に中央揃え
     Column(
@@ -94,7 +98,7 @@ fun MainContent() {
         CompanySection()
         // 詳細ボタン
         Button(
-            onClick = { print("クリックされました") },
+            onClick = { isDetailShow = !isDetailShow },
             modifier = Modifier.fillMaxWidth(),
             colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFFF85F6A))
         ) {
@@ -104,7 +108,10 @@ fun MainContent() {
             modifier = Modifier.height(20.dp)      // dp は画面の密度に依存しないサイズ単位
         )
         //居住地　趣味
-        DetailSection()
+        if (isDetailShow) {
+            DetailSection()
+        }
+
     }
 }
 
